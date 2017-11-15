@@ -20,7 +20,7 @@ namespace ElevenNote.Data
         [Required]
         public string Title { get; set; }
 
-        [MaxLength(500, ErrorMessage ="500 character Max")]
+        [MaxLength(500)]
         public string Content { get; set; }
 
         [Required]
