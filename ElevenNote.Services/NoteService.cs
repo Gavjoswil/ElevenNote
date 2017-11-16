@@ -62,7 +62,7 @@ namespace ElevenNote.Services
             NoteEntity entity;
             using (var ctx = new ElevenNoteDbContext())
             {
-                entity = GetNoteById(ctx, id);
+                entity = GetNoteFromDatabase(ctx, id);
             }
 
             if (entity == null) return new NoteDetailModel();
@@ -82,7 +82,7 @@ namespace ElevenNote.Services
         {
             using (var ctx = new ElevenNoteDbContext())
             {
-                var entity = GetNoteById(ctx, model.NoteId);
+                var entity = GetNoteFromDatabase(ctx, model.NoteId);
 
                 if (entity == null) return false;
 
@@ -94,7 +94,7 @@ namespace ElevenNote.Services
             }
         }
 
-        private NoteEntity GetNoteById(ElevenNoteDbContext context, int noteId)
+        private NoteEntity GetNoteFromDatabase(ElevenNoteDbContext context, int noteId)
         {
             return
                 context
@@ -106,7 +106,7 @@ namespace ElevenNote.Services
         {
             using (var ctx = new ElevenNoteDbContext())
             {
-                var entity = GetNoteById(ctx, noteId);
+                var entity = GetNoteFromDatabase(ctx, noteId);
 
                 if (entity == null) return false;
 
